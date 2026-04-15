@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Forge | Forjamos Impérios Digitais</title>
+    <meta name="description" content="Gestão de tráfego e design que transforma seu investimento em resultados reais. Venda mais gastando menos com a Growth Forge.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sparks Animation Overlay -->
+    <div class="sparks-container" id="sparks"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="logo">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#f4e5c2"/>
+                            <stop offset="50%" style="stop-color:#c9a961"/>
+                            <stop offset="100%" style="stop-color:#8b7355"/>
+                        </linearGradient>
+                        <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#5a5a5a"/>
+                            <stop offset="50%" style="stop-color:#3a3a3a"/>
+                            <stop offset="100%" style="stop-color:#2a2a2a"/>
+                        </linearGradient>
+                        <linearGradient id="fireBaseGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" style="stop-color:#8b2500"/>
+                            <stop offset="50%" style="stop-color:#d4662c"/>
+                            <stop offset="100%" style="stop-color:#ff8c42"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M 20 220 L 100 160 L 180 220 Z" fill="url(#fireBaseGrad)" opacity="0.9"/>
+                    <rect x="70" y="140" width="60" height="60" fill="url(#metalGrad)"/>
+                    <ellipse cx="100" cy="140" rx="40" ry="12" fill="url(#goldGrad)"/>
+                    <text x="100" y="118" font-family="Cinzel" font-weight="900" font-size="45" fill="url(#goldGrad)" text-anchor="middle">G</text>
+                </svg>
+                <span class="logo-text">GROWTH FORGE</span>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#resultados">Resultados</a></li>
+                <li><a href="#time">Time</a></li>
+                <li><a href="https://wa.me/5522988231811" target="_blank" class="nav-cta">Fale Conosco</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="img/hero.png" alt="Growth Forge Background">
+        </div>
+        <div class="hero-overlay"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <span class="fire-icon">🔥</span>
+                    <span>Forjado no Fogo</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Venda <span class="highlight">Mais</span> Gastando 
+                    <span class="highlight">Menos</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Transformamos seu investimento em tráfego pago em resultados reais. 
+                    Sem gastar fortunas, sem promessas vazias. <strong>Estratégia, execução e resultado.</strong>
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-row">
+                            <span class="stat-number" data-count="4">0</span>
+                            <span class="stat-suffix">+</span>
+                        </div>
+                        <span class="stat-label">Anos de Experiência</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-row">
+                            <span class="stat-prefix">R$</span>
+                            <span class="stat-number" data-count="2">0</span>
+                            <span class="stat-suffix">M</span>
+                        </div>
+                        <span class="stat-label">Milhões Gerados</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-row">
+                            <span class="stat-number" data-count="98">0</span>
+                            <span class="stat-suffix">%</span>
+                        </div>
+                        <span class="stat-label">Clientes Satisfeitos</span>
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="https://wa.me/5522988231811" target="_blank" class="btn-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        Quero Vender Mais Agora
+                    </a>
+                    <a href="#sobre" class="btn-secondary">Conhecer a Forja</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Role para explorar</span>
+        </div>
+    </section>
+
+    <!-- Pain Section -->
+<section class="pain-section" id="dor">
+    <div class="container">
+        <div class="pain-grid">
+            <div class="pain-visual mobile-first">
+                <div class="anvil-container">
+                    <img src="img/cases.png" alt="Bigorna Growth Forge">
+                    <div class="glow-effect"></div>
+                </div>
+            </div>
+            
+            <div class="pain-content">
+                <span class="section-tag">A Dor do Empresário</span>
+                <h2 class="section-title">
+                    Você já <span class="text-fire">gastou fortunas</span> em anúncios 
+                    e não viu retorno?
+                </h2>
+                
+                <div class="pain-points">
+                    <div class="pain-item">
+                        <i class="fas fa-fire-burner"></i>
+                        <div>
+                            <h3>Dinheiro Queimado</h3>
+                            <p>Investe em tráfego mas as vendas não acompanham o gasto</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pain-item">
+                        <i class="fas fa-arrow-trend-down"></i>  <!-- ÍCONE CORRIGIDO -->
+                        <div>
+                            <h3>Resultados Instáveis</h3>
+                            <p>Hoje vende, amanhã não vende. Não sabe o que funciona</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pain-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Tempo Perdido</h3>
+                            <p>Tenta gerenciar sozinho e perde foco no que realmente importa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pain-visual desktop-only">
+                <div class="anvil-container">
+                    <img src="img/cases.png" alt="Bigorna Growth Forge">
+                    <div class="glow-effect"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Solution Section -->
+    <section class="solution-section" id="sobre">
+        <div class="container">
+            <div class="solution-header">
+                <span class="section-tag">A Solução</span>
+                <h2 class="section-title">
+                    A Forja que Transforma 
+                    <span class="text-gold">Investimento em Lucro</span>
+                </h2>
+            </div>
+            
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Estratégia Aquecida</h3>
+                    <p>Analisamos seu negócio, público e concorrência para criar campanhas que realmente convertem.</p>
+                </div>
+                
+                <div class="solution-card featured">
+                    <div class="solution-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Execução Forjada</h3>
+                    <p>Trabalho direto e dedicado. Atuamos pessoalmente no seu projeto, martelando cada detalhe até o resultado.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Resultados Sólidos</h3>
+                    <p>Otimização diária, relatórios claros e escala inteligente do que funciona.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="servicos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Serviços</span>
+                <h2 class="section-title">O Que Forjamos Para Você</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="img/performance.png" alt="Gestão de Tráfego">
+                        <div class="service-overlay"></div>
+                    </div>
+                    <div class="service-content">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Gestão de Tráfego Pago</h3>
+                        <p>Google Ads, Facebook Ads e Instagram Ads otimizados para conversão real.</p>
+                        <ul>
+                            <li>Criação de campanhas do zero</li>
+                            <li>Otimização diária de anúncios</li>
+                            <li>Relatórios semanais de performance</li>
+                            <li>Escala inteligente de investimento</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="img/design.png" alt="Design e Social Media">
+                        <div class="service-overlay"></div>
+                    </div>
+                    <div class="service-content">
+                        <i class="fas fa-palette"></i>
+                        <h3>Design & Social Media</h3>
+                        <p>Criativos que param o scroll e gestão estratégica das suas redes sociais.</p>
+                        <ul>
+                            <li>Criação de artes e vídeos</li>
+                            <li>Gestão de Instagram e Facebook</li>
+                            <li>Copywriting persuasivo</li>
+                            <li>Identidade visual forte</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section" id="processo">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Processo</span>
+                <h2 class="section-title">A Tríade do Fogo</h2>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">🔥</div>
+                    <h3>Chama da Visão</h3>
+                    <p>Entendemos seu negócio, metas e desafios. Mapeamos oportunidades e definimos a estratégia.</p>
+                </div>
+                
+                <div class="process-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">⚡</div>
+                    <h3>Faísca da Ação</h3>
+                    <p>Criamos campanhas, desenvolvemos criativos e colocamos fogo nas estruturas.</p>
+                </div>
+                
+                <div class="process-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">🏆</div>
+                    <h3>Brasa da Conquista</h3>
+                    <p>Otimizamos, escalamos e mantemos o calor. Resultados duradouros e crescimento real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="time">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Os Ferreiros</span>
+                <h2 class="section-title">Quem Forja Seu Sucesso</h2>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="img/tales.jpeg" alt="Tales Santos" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop'">
+                        <div class="team-glow"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Tales Santos</h3>
+                        <span class="team-role">Gestor de Tráfego</span>
+                        <p>4 anos transformando cliques em clientes. Especialista em Google Ads, Facebook Ads e estratégia de performance.</p>
+                        <div class="team-social">
+                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="img/sarah.jpg" alt="Sarah Lessa" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop'">
+                        <div class="team-glow"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Sarah Lessa</h3>
+                        <span class="team-role">Designer & Social Media</span>
+                        <p>2 anos criando identidades visuais memoráveis e gestão estratégica de redes sociais que convertem.</p>
+                        <div class="team-social">
+                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" id="resultados">
+        <div class="container">
+            <div class="results-header">
+                <span class="section-tag">Resultados</span>
+                <h2 class="section-title">Impérios Forjados em Ascensão</h2>
+            </div>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">
+                        <span class="counter" data-target="3.5">0</span>x
+                    </div>
+                    <p class="result-label">ROAS Médio dos Clientes</p>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">
+                        <span class="counter" data-target="150">0</span>%
+                    </div>
+                    <p class="result-label">Aumento Médio de Faturamento</p>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">
+                        <span class="counter" data-target="40">0</span>%
+                    </div>
+                    <p class="result-label">Redução de Custo por Aquisição</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contato">
+        <div class="cta-bg">
+            <img src="img/hero.png" alt="Background">
+        </div>
+        <div class="cta-overlay"></div>
+        
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto para Forjar Seu Império?</h2>
+                <p>Não deixe seu dinheiro queimar no fogo de campanhas mal feitas. <br>
+                   Vamos transformar seu investimento em resultados reais.</p>
+                
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5522988231811" target="_blank" class="btn-cta-large">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>
+                            <strong>Falar com Tales no WhatsApp</strong>
+                            <small>Resposta em até 2 horas</small>
+                        </span>
+                    </a>
+                </div>
+                
+                <div class="cta-guarantee">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Análise gratuita do seu projeto antes de qualquer proposta</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" width="60">
+                            <defs>
+                                <linearGradient id="goldGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#c9a961"/>
+                                    <stop offset="100%" style="stop-color:#8b7355"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M 20 220 L 100 160 L 180 220 Z" fill="#d4662c"/>
+                            <rect x="70" y="140" width="60" height="60" fill="#2c2c2c"/>
+                            <ellipse cx="100" cy="140" rx="40" ry="12" fill="url(#goldGradFooter)"/>
+                            <text x="100" y="118" font-family="Cinzel" font-weight="900" font-size="45" fill="url(#goldGradFooter)" text-anchor="middle">G</text>
+                        </svg>
+                        <span>GROWTH FORGE</span>
+                    </div>
+                    <p>Forjando impérios digitais desde 2022. Estratégia, execução e resultado.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#resultados">Resultados</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p><i class="fab fa-whatsapp"></i> (22) 98823-1811</p>
+                    <p><i class="fas fa-envelope"></i> contato@growthforge.com.br</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cuiabá, MT</p>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Growth Forge. Todos os direitos reservados.</p>
+                <p class="footer-tagline">Forjado no Fogo | Impérios em Ascensão</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5522988231811" target="_blank" class="whatsapp-float" id="whatsappFloat">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Fale conosco!</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
