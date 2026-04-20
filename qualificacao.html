@@ -490,23 +490,6 @@
         <p>Forjado no Fogo | Impérios em Ascensão</p>
     </footer>
 
-    <!-- Formulário oculto para envio de e-mail via FormSubmit -->
-    <form id="leadForm" action="https://formsubmit.co/growthforje@gmail.com" method="POST" style="display: none;">
-        <input type="hidden" name="_subject" value="🚨 NOVO LEAD - Growth Forje">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="">
-
-        <input type="text" name="nome" id="formNome">
-        <input type="text" name="empresa" id="formEmpresa">
-        <input type="tel" name="whatsapp" id="formWhatsapp">
-        <input type="email" name="email" id="formEmail">
-        <input type="text" name="faturamento" id="formFaturamento">
-        <input type="text" name="investimento" id="formInvestimento">
-        <input type="text" name="data_hora" id="formDataHora">
-        <input type="text" name="origem" value="Site Growth Forje - Pré-Qualificação">
-    </form>
-
     <script>
 // ===================================
 // CONFIG
@@ -515,7 +498,6 @@
 const chatContainer = document.getElementById('chatContainer');
 const progressBar = document.getElementById('progressBar');
 const finalScreen = document.getElementById('finalScreen');
-const leadForm = document.getElementById('leadForm');
 
 let leadData = {
     nome: '',
@@ -635,7 +617,10 @@ function addMessage(type, text) {
         messageDiv.appendChild(bubble);
         chatContainer.appendChild(messageDiv);
 
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        // Scroll suave e automático para a última mensagem
+        setTimeout(() => {
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }, 100);
 
         resolve();
     });
@@ -665,7 +650,10 @@ function addTyping(delay = 800) {
         typingDiv.appendChild(bubble);
         chatContainer.appendChild(typingDiv);
 
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        // Scroll automático para o indicador de digitação
+        setTimeout(() => {
+            typingDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }, 100);
 
         setTimeout(() => {
             typingDiv.remove();
@@ -697,7 +685,11 @@ function addInput(field, placeholder) {
     container.appendChild(btn);
     chatContainer.appendChild(container);
 
-    input.focus();
+    // Scroll automático para o campo de input
+    setTimeout(() => {
+        container.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        input.focus();
+    }, 100);
 }
 
 function sendInput(field) {
@@ -738,6 +730,11 @@ function addOptions(options, field) {
     });
 
     chatContainer.appendChild(container);
+
+    // Scroll automático para as opções
+    setTimeout(() => {
+        container.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }, 100);
 }
 
 // ===================================
@@ -771,29 +768,49 @@ async function processNextMessage() {
 }
 
 // ===================================
-// FINAL
+// FINAL - ENVIO AJAX SEM REDIRECIONAMENTO
 // ===================================
 
 function finish() {
     progressBar.style.width = '100%';
-    sendLead();
-
-    setTimeout(() => {
+    
+    // Envia os dados via AJAX sem redirecionar
+    sendLeadAjax().then(() => {
+        // Mostra a tela final com botão do WhatsApp
         chatContainer.style.display = 'none';
         finalScreen.style.display = 'block';
-    }, 1000);
+        
+        // Scroll para o topo para ver a mensagem de sucesso
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }).catch(err => {
+        console.error('Erro ao enviar:', err);
+        // Mesmo com erro, mostra a tela final
+        chatContainer.style.display = 'none';
+        finalScreen.style.display = 'block';
+    });
 }
 
-function sendLead() {
-    document.getElementById('formNome').value = leadData.nome;
-    document.getElementById('formEmpresa').value = leadData.empresa;
-    document.getElementById('formWhatsapp').value = leadData.whatsapp;
-    document.getElementById('formEmail').value = leadData.email;
-    document.getElementById('formFaturamento').value = leadData.faturamento;
-    document.getElementById('formInvestimento').value = leadData.investimento;
-    document.getElementById('formDataHora').value = new Date().toLocaleString('pt-BR');
-
-    leadForm.submit();
+function sendLeadAjax() {
+    return fetch('https://formsubmit.co/ajax/growthforje@gmail.com', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            nome: leadData.nome,
+            empresa: leadData.empresa,
+            whatsapp: leadData.whatsapp,
+            email: leadData.email,
+            faturamento: leadData.faturamento,
+            investimento: leadData.investimento,
+            data_hora: new Date().toLocaleString('pt-BR'),
+            origem: 'Site Growth Forje - Pré-Qualificação',
+            _subject: '🚨 NOVO LEAD - Growth Forje',
+            _template: 'table',
+            _captcha: 'false'
+        })
+    });
 }
 
 // INIT
