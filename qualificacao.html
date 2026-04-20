@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google tag (gtag.js) - APENAS NA PÁGINA DE CONVERSÃO -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L6N52DJNLE"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L6N52DJNLE');
+
+    // Evento de conversão quando a página carrega (lead chegou na página de qualificação)
+    gtag('event', 'page_view_qualificacao', {
+        'event_category': 'conversion',
+        'event_label': 'inicio_qualificacao',
+        'value': 1
+    });
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Forje | Pré-Qualificação</title>
+    <meta name="description" content="Pré-qualificação para novos clientes Growth Forje - Gestão de Tráfego e Design">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --ouro-forjado: #C9A961;
+            --ouro-claro: #f4e5c2;
+            --chama-viva: #FF4500;
+            --brasa-profunda: #D4662C;
+            --brasa-clara: #ff8c42;
+            --carvao-ardente: #0A0A0A;
+            --metal-escuro: #1a1a1a;
+            --cinza-texto: #e0e0e0;
+            --cinza-medio: #888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--carvao-ardente);
+            color: var(--cinza-texto);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 2px solid var(--ouro-forjado);
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--chama-viva), transparent);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 48px;
+        }
+
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--ouro-forjado), var(--brasa-clara));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .header-subtitle {
+            color: var(--cinza-medio);
+            font-size: 0.85rem;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        /* Chat Container */
+        .chat-container {
+            flex: 1;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Messages */
+        .message {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        .message.bot {
+            align-self: flex-start;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+
+        .message.bot .message-avatar {
+            background: linear-gradient(135deg, var(--brasa-profunda), var(--chama-viva));
+            color: white;
+        }
+
+        .message.user .message-avatar {
+            background: linear-gradient(135deg, var(--ouro-forjado), var(--brasa-clara));
+            color: var(--carvao-ardente);
+        }
+
+        .message-bubble {
+            max-width: 70%;
+            padding: 15px 20px;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .message.bot .message-bubble {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            color: var(--cinza-texto);
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.user .message-bubble {
+            background: linear-gradient(135deg, var(--ouro-forjado), var(--brasa-profunda));
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Options/Buttons */
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            padding-left: 48px;
+        }
+
+        .option-btn {
+            background: linear-gradient(135deg, var(--brasa-profunda), var(--chama-viva));
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 102, 44, 0.3);
+        }
+
+        .option-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 102, 44, 0.5);
+        }
+
+        .option-btn.selected {
+            background: linear-gradient(135deg, var(--ouro-forjado), var(--brasa-clara));
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
+        }
+
+        /* Input Field */
+        .input-container {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            padding-left: 48px;
+            animation: fadeInUp 0.3s forwards;
+        }
+
+        .input-field {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            border-radius: 25px;
+            padding: 12px 20px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: var(--ouro-forjado);
+            box-shadow: 0 0 10px rgba(201, 169, 97, 0.2);
+        }
+
+        .input-field::placeholder {
+            color: var(--cinza-medio);
+        }
+
+        .send-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--ouro-forjado), var(--brasa-clara));
+            border: none;
+            color: var(--carvao-ardente);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(201, 169, 97, 0.4);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--chama-viva), var(--ouro-forjado));
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* Loading */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 10px 15px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--ouro-forjado);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        /* Final Screen */
+        .final-screen {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .final-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .final-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--ouro-forjado);
+            margin-bottom: 15px;
+        }
+
+        .final-text {
+            color: var(--cinza-medio);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .whatsapp-final-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .whatsapp-final-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-final-btn i {
+            font-size: 1.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(201, 169, 97, 0.1);
+            color: var(--cinza-medio);
+            font-size: 0.8rem;
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            color: var(--ouro-forjado);
+            margin-bottom: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chat-container {
+                padding: 20px 15px;
+            }
+
+            .message-bubble {
+                max-width: 85%;
+                padding: 12px 16px;
+                font-size: 0.9rem;
+            }
+
+            .options-container {
+                padding-left: 0;
+            }
+
+            .input-container {
+                padding-left: 0;
+            }
+
+            .option-btn {
+                padding: 10px 18px;
+                font-size: 0.85rem;
+            }
+
+            .final-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <svg class="logo-icon" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="goldGradHeader" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#f4e5c2"/>
+                        <stop offset="50%" style="stop-color:#c9a961"/>
+                        <stop offset="100%" style="stop-color:#8b7355"/>
+                    </linearGradient>
+                    <linearGradient id="metalGradHeader" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#5a5a5a"/>
+                        <stop offset="50%" style="stop-color:#3a3a3a"/>
+                        <stop offset="100%" style="stop-color:#2a2a2a"/>
+                    </linearGradient>
+                    <linearGradient id="fireBaseGradHeader" x1="0%" y1="100%" x2="0%" y2="0%">
+                        <stop offset="0%" style="stop-color:#8b2500"/>
+                        <stop offset="50%" style="stop-color:#d4662c"/>
+                        <stop offset="100%" style="stop-color:#ff8c42"/>
+                    </linearGradient>
+                </defs>
+                <path d="M 20 220 L 100 160 L 180 220 Z" fill="url(#fireBaseGradHeader)" opacity="0.9"/>
+                <rect x="70" y="140" width="60" height="60" fill="url(#metalGradHeader)"/>
+                <ellipse cx="100" cy="140" rx="40" ry="12" fill="url(#goldGradHeader)"/>
+                <text x="100" y="118" font-family="Cinzel" font-weight="900" font-size="45" fill="url(#goldGradHeader)" text-anchor="middle">G</text>
+            </svg>
+            <span class="logo-text">GROWTH FORJE</span>
+        </div>
+        <p class="header-subtitle">Forjando Impérios | Pré-Qualificação de Leads</p>
+    </header>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chatContainer">
+        <!-- Messages will be inserted here by JavaScript -->
+    </div>
+
+    <!-- Final Screen -->
+    <div class="final-screen" id="finalScreen">
+        <div class="final-icon">🔥</div>
+        <h2 class="final-title">Pré-Qualificação Concluída!</h2>
+        <p class="final-text">
+            Obrigado pelas informações! Nossa equipe já recebeu seus dados e<br>
+            em breve entrará em contato. Clique abaixo para falar diretamente no WhatsApp.
+        </p>
+        <a href="https://wa.me/5522988231811" target="_blank" class="whatsapp-final-btn" id="whatsappFinalBtn">
+            <i class="fab fa-whatsapp"></i>
+            <span>Falar no WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">GROWTH FORJE</div>
+        <p>Forjado no Fogo | Impérios em Ascensão</p>
+    </footer>
+
+    <!-- Formulário oculto para envio de e-mail via FormSubmit -->
+    <form id="leadForm" action="https://formsubmit.co/growthforje@gmail.com" method="POST" style="display: none;">
+        <input type="hidden" name="_subject" value="🚨 NOVO LEAD - Growth Forje">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="">
+
+        <input type="text" name="nome" id="formNome">
+        <input type="text" name="empresa" id="formEmpresa">
+        <input type="tel" name="whatsapp" id="formWhatsapp">
+        <input type="email" name="email" id="formEmail">
+        <input type="text" name="faturamento" id="formFaturamento">
+        <input type="text" name="investimento" id="formInvestimento">
+        <input type="text" name="data_hora" id="formDataHora">
+        <input type="text" name="origem" value="Site Growth Forje - Pré-Qualificação">
+    </form>
+
+    <script>
+// ===================================
+// CONFIG
+// ===================================
+
+const chatContainer = document.getElementById('chatContainer');
+const progressBar = document.getElementById('progressBar');
+const finalScreen = document.getElementById('finalScreen');
+const leadForm = document.getElementById('leadForm');
+
+let leadData = {
+    nome: '',
+    empresa: '',
+    whatsapp: '',
+    email: '',
+    faturamento: '',
+    investimento: ''
+};
+
+let currentStep = 0;
+const totalSteps = 6;
+let messageIndex = 0;
+
+// ===================================
+// FLUXO OTIMIZADO (HIGH CONVERSION)
+// ===================================
+
+const chatFlow = [
+    {
+        type: 'bot',
+        text: '👋 Fala! Vou ser direto com você.',
+        delay: 600
+    },
+    {
+        type: 'bot',
+        text: 'Se fizer sentido, a gente pode te ajudar a aumentar seu faturamento com previsibilidade.',
+        delay: 800
+    },
+    {
+        type: 'bot',
+        text: 'Mas antes, preciso entender rápido o seu cenário.',
+        delay: 800
+    },
+    {
+        type: 'bot',
+        text: 'Qual seu nome?',
+        input: 'nome',
+        placeholder: 'Digite seu nome'
+    },
+    {
+        type: 'bot',
+        text: 'Perfeito, {nome}. Qual é o nome da sua empresa?',
+        input: 'empresa',
+        placeholder: 'Nome da empresa'
+    },
+    {
+        type: 'bot',
+        text: 'Hoje, em média, quanto você fatura por mês?',
+        options: [
+            { value: '10k-15K', label: 'R$ 10K - R$ 15K' },
+            { value: '10k-30k', label: 'R$ 15k – R$ 30k' },
+            { value: '30k-100k', label: 'R$ 30k – R$ 100k' },
+            { value: '100k+', label: 'Acima de R$ 100k' }
+        ],
+        field: 'faturamento'
+    },
+    {
+        type: 'bot',
+        text: 'E quanto você investe (ou pretende investir) em tráfego?',
+        options: [
+            { value: '3k-5k', label: 'R$ 3k – R$ 5k' },
+            { value: '5k-10k', label: 'R$ 5k – R$ 10k' },
+            { value: '10k-30k', label: 'R$ 10k – R$ 30k' },
+            { value: '30k+', label: 'Acima de R$ 30k' }
+        ],
+        field: 'investimento'
+    },
+    {
+        type: 'bot',
+        text: 'Boa. Agora me passa seu WhatsApp pra gente falar direto.',
+        input: 'whatsapp',
+        placeholder: '(XX) XXXXX-XXXX'
+    },
+    {
+        type: 'bot',
+        text: 'E um e-mail (caso a gente não consiga te chamar no WhatsApp)',
+        input: 'email',
+        placeholder: 'seu@email.com'
+    },
+    {
+        type: 'bot',
+        text: 'Perfeito. Já estou analisando seu perfil...',
+        delay: 800
+    }
+];
+
+// ===================================
+// FUNÇÕES
+// ===================================
+
+function updateProgress() {
+    const progress = ((currentStep) / totalSteps) * 100;
+    progressBar.style.width = progress + '%';
+}
+
+function replaceVariables(text) {
+    return text.replace('{nome}', leadData.nome || '');
+}
+
+function addMessage(type, text) {
+    return new Promise(resolve => {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${type}`;
+
+        const avatar = document.createElement('div');
+        avatar.className = 'message-avatar';
+        avatar.innerHTML = type === 'bot'
+            ? '<i class="fas fa-fire"></i>'
+            : '<i class="fas fa-user"></i>';
+
+        const bubble = document.createElement('div');
+        bubble.className = 'message-bubble';
+        bubble.textContent = replaceVariables(text);
+
+        messageDiv.appendChild(avatar);
+        messageDiv.appendChild(bubble);
+        chatContainer.appendChild(messageDiv);
+
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        resolve();
+    });
+}
+
+function addTyping(delay = 800) {
+    return new Promise(resolve => {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message bot';
+        typingDiv.id = 'typingIndicator';
+
+        const avatar = document.createElement('div');
+        avatar.className = 'message-avatar';
+        avatar.innerHTML = '<i class="fas fa-fire"></i>';
+
+        const bubble = document.createElement('div');
+        bubble.className = 'message-bubble';
+        bubble.innerHTML = `
+            <div class="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        `;
+
+        typingDiv.appendChild(avatar);
+        typingDiv.appendChild(bubble);
+        chatContainer.appendChild(typingDiv);
+
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        setTimeout(() => {
+            typingDiv.remove();
+            resolve();
+        }, delay);
+    });
+}
+
+function addInput(field, placeholder) {
+    const container = document.createElement('div');
+    container.className = 'input-container';
+    container.style.display = 'flex';
+
+    const input = document.createElement('input');
+    input.className = 'input-field';
+    input.placeholder = placeholder;
+    input.id = 'input';
+
+    const btn = document.createElement('button');
+    btn.className = 'send-btn';
+    btn.innerHTML = '→';
+
+    btn.onclick = () => sendInput(field);
+    input.addEventListener('keypress', e => {
+        if (e.key === 'Enter') sendInput(field);
+    });
+
+    container.appendChild(input);
+    container.appendChild(btn);
+    chatContainer.appendChild(container);
+
+    input.focus();
+}
+
+function sendInput(field) {
+    const input = document.getElementById('input');
+    const value = input.value.trim();
+    if (!value) return;
+
+    input.parentElement.remove();
+
+    addMessage('user', value).then(() => {
+        leadData[field] = value;
+        currentStep++;
+        updateProgress();
+        setTimeout(processNextMessage, 400);
+    });
+}
+
+function addOptions(options, field) {
+    const container = document.createElement('div');
+    container.className = 'options-container';
+
+    options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = opt.label;
+
+        btn.onclick = () => {
+            container.remove();
+            addMessage('user', opt.label).then(() => {
+                leadData[field] = opt.value;
+                currentStep++;
+                updateProgress();
+                setTimeout(processNextMessage, 400);
+            });
+        };
+
+        container.appendChild(btn);
+    });
+
+    chatContainer.appendChild(container);
+}
+
+// ===================================
+// FLOW ENGINE
+// ===================================
+
+async function processNextMessage() {
+    if (messageIndex >= chatFlow.length) {
+        finish();
+        return;
+    }
+
+    const msg = chatFlow[messageIndex];
+
+    await addTyping(msg.delay || 700);
+    await addMessage('bot', msg.text);
+
+    messageIndex++;
+
+    if (msg.input) {
+        addInput(msg.input, msg.placeholder);
+        return;
+    }
+
+    if (msg.options) {
+        addOptions(msg.options, msg.field);
+        return;
+    }
+
+    processNextMessage();
+}
+
+// ===================================
+// FINAL
+// ===================================
+
+function finish() {
+    progressBar.style.width = '100%';
+    sendLead();
+
+    setTimeout(() => {
+        chatContainer.style.display = 'none';
+        finalScreen.style.display = 'block';
+    }, 1000);
+}
+
+function sendLead() {
+    document.getElementById('formNome').value = leadData.nome;
+    document.getElementById('formEmpresa').value = leadData.empresa;
+    document.getElementById('formWhatsapp').value = leadData.whatsapp;
+    document.getElementById('formEmail').value = leadData.email;
+    document.getElementById('formFaturamento').value = leadData.faturamento;
+    document.getElementById('formInvestimento').value = leadData.investimento;
+    document.getElementById('formDataHora').value = new Date().toLocaleString('pt-BR');
+
+    leadForm.submit();
+}
+
+// INIT
+setTimeout(processNextMessage, 500);
+updateProgress();
+
+</script>
+</body>
+</html>
